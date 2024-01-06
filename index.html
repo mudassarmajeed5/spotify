@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify WebPlayer for Everyone</title>
+    <link rel="icon" href="https://open.spotifycdn.com/cdn/images/favicon.0f31d2ea.ico" />
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/utility.css">
+    <link rel="stylesheet" href="CSS/right.css">
+</head>
+
+<body>
+    <img id="my_library" src="right-images/bell.svg" alt=""></div>
+    <div class="flex container">
+
+        <div class="left">
+            <div class="home">
+                <div class="hico">
+                    <img width="25px" src="Images/home-icon.svg" alt="Home">
+                    <span>Home</span>
+                </div>
+                <div class="sico">
+                    <img width="25px" src="Images/search-icon.svg" alt="Search">
+                    <span>Search</span>
+                </div>
+            </div>
+            <div class="library">
+                <div class="banner flex column">
+                    <div class="your-library">
+                        <div class="lib"><img width="30px" src="Images/library.svg" alt=""></div>
+                        <div class="lib2">Your Library</div>
+                    </div>
+                    <div style="color: white;" class="playlist">
+                        Your Songs
+                    </div>
+                    <div style="padding: 5px 20px;" class="list">
+                        <ul id="librarysongs">
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="right">
+            <div class="banner">
+                <div class="wrapper">
+                    <div class="banner_buttons">
+                        <div style="gap: 5px;" class="flex"><img class="backforward" src="right-images/back_button.svg"
+                                alt="">
+                            <img class="backforward" src="right-images/forward_button.svg" alt="">
+                        </div>
+                        <div style="align-items: center;" class="flex login">
+                            <button class="login_explore">Explore Premium</button>
+                            <button class="login_explore">Install Spotify</button>
+                        </div>
+                        <div style="align-items: center;" class="flex gapbell"><img id="usersvg" src="right-images/user.svg" alt="">
+                        
+                    </div>
+                </div>
+                <div id="changescolor" class="color_banner"></div>
+            </div>
+            <div  class="scroll_songs"> 
+            <div style="font-family: 'Poppins',sans-serif;" class="flex cards">
+                <div class="card">
+                    <div class="card_image"><img id="card_image" src="Card_images/card1.jpeg" alt=""></div>
+                    <p id="title">Daily Mix</p>
+                </div>
+                <div class="card">
+                    <div class="card_image"><img id="card_image" src="Card_images/card2.jpeg" alt=""></div>
+                    <p id="title">Upbeat Music</p>
+                </div>
+                <div class="card">
+                    <div class="card_image"><img id="card_image" src="Card_images/card3.jpeg" alt=""></div>
+                    <p id="title">Hindi Mix</p>
+                </div>
+                <div class="card">
+                    <div class="card_image"><img id="card_image" src="Card_images/card4.jpeg" alt=""></div>
+                    <p id="title">K-Pop Mix</p>
+                </div>
+                <div class="card">
+                    <div class="card_image"><img id="card_image" src="Card_images/card5.jpeg" alt=""></div>
+                    <p id="title">Daily Mix 1</p>
+                </div>
+                <div class="card">
+                    <div class="card_image"><img id="card_image" src="Card_images/card6.jpeg" alt=""></div>
+                    <p id="title">Daily Mix 5</p>
+                </div>
+                <div class="card">
+                    <div class="card_image"><img id="card_image" src="Card_images/card7.jpeg" alt=""></div>
+                    <p id="title">Indie Mix</p>
+                </div>
+                <div class="card">
+                    <div class="card_image"><img id="card_image" src="Card_images/card8.jpeg" alt=""></div>
+                    <p id="title">Moody Mix</p>
+                </div>
+                <div class="card">
+                    <div class="card_image"><img id="card_image" src="Card_images/card9.jpeg" alt=""></div>
+                    <p id="title">Ava Max</p>
+                </div>
+                <div class="card">
+                    <div class="card_image"><img id="card_image" src="Card_images/card10.jpg" alt=""></div>
+                    <p id="title">On Repeat</p>
+                </div>
+                
+                
+            </div>
+            </div>
+        
+        </div>
+
+        <div class="player">
+            <div style="text-align: center;" class="music_icon"><img src="Images/music_icon.svg" alt=""></div>
+            <div id="current_song">Sia snowman</div>
+            <div class="buttons">
+                <img id="backwards" src="Images/previous-song.svg" alt="">
+                <img style="background-color: white; border-radius: 50%; padding: 7px;" id="play-pause"
+                    src="Images/play.svg" alt="">
+                <img id="forwards" src="Images/next-song.svg" alt="">
+            </div>
+            <div id="range">
+                <input type="range" id="seekbar" value="0">
+            </div>
+            <div class="mute_unmute">
+                <img id="change_mute_unmute" src="Images/high_vol.svg" alt="">
+                <input type="range" id="volume_controller">
+            </div>
+
+            <div class="seek">
+                <a href="Songs/Katy Perry E.T.mp3"></a>
+                <a href="Songs/Sia Snowman.mp3"></a>
+                <a href="Songs/Yeh hai Maikada.mp3"></a>
+                <a href="Songs/Let me down Slowly.mp3"></a>
+                <a href="Songs/Tea's gone Cold.mp3"></a>
+                <a href="Songs/Neffex Struggle.mp3"></a>
+                <a href="Songs/Million Dollar Baby -- AvaMax.mp3"></a>
+                <a href="Songs/Kings and Queens -- AvaMax.mp3"></a>
+                <a href="songs/Sweet But Psycho -- AvaMax.mp3"></a>
+                <a href="Songs/Hello World Outro.mp3"></a>
+                <a href="Songs/Royalty by EzGod.mp3"></a>
+                <a href="Songs/Where we started -- NCS Release.mp3"></a>
+                <a href="Songs/K_DA Villain -- Madison Beer.mp3"></a>
+                <a href="Songs/Zara Zara Behekta hai -- Jalraj.mp3"></a>
+                <a href="Songs/INTERSTELLAR Theme Song (Slowed).mp3"></a>
+                <a href="Songs/Love Me Like you Do -- Ellie Goulding.mp3"></a>
+                <a href="Songs/TriploMax Shadow.mp3"></a>
+                <a href="Songs/Sun Beqadra -- Nehaal Naseem.mp3"></a>
+                <a href="Songs/I'm Good (Blue).mp3"></a>
+                <a href="Songs/Shootout Slowed to Perfection.mp3"></a>
+                <a href="Songs/Uska Hi Bana -- Jalraj.mp3"></a>
+                <a href="Songs/After Dark -- Mr.Kitty.mp3"></a>
+                <a href="Songs/Memory Reboot -- Slowed to perfection.mp3"></a>
+                <a href="Songs/Kusu Kusu -- Nora Fatehi .mp3"></a>
+                <a href="Songs/Why Do I Baby -- Britolani.mp3"></a>
+                <a href="Songs/Ghalat Fehmi -- Mahira Khan.mp3"></a>
+                <a href="Songs/Wolf and the street -- Music only.mp3"></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="right.js"></script>
+</body>
+
+</html>
