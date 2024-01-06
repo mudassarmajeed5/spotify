@@ -18,22 +18,22 @@ async function main() {
 
     currentIndex = 0
     let audio = new Audio();
-    
+
     async function togglebutton() {
         let music_list = await getmusic();
         var currentTrack = music_list[0];
-        
+
         audio.src = currentTrack;
-        audio.addEventListener('loadedmetadata', function() {
+        audio.addEventListener('loadedmetadata', function () {
             let slider = document.getElementById("seekbar");
             slider.max = audio.duration
             slider.min = 0;
         });
-        audio.addEventListener("timeupdate",()=>{
+        audio.addEventListener("timeupdate", () => {
             let slider = document.getElementById("seekbar")
             slider.value = audio.currentTime;
         })
-        
+
 
 
         // Seekbar Default track;
@@ -59,8 +59,10 @@ async function main() {
 
         let UL_list = document.getElementById("librarysongs");
         for (let song = 0; song < music_list.length; song++) {
+
             let new_list = music_list[song].split("/");
-            let song_list = new_list[4].replace(/%20/g, " ");
+
+            let song_list = new_list[5].replace(/%20/g, " ");
             let liElement = document.createElement("li");
             liElement.textContent = song_list;
             UL_list.appendChild(liElement);
@@ -101,17 +103,17 @@ async function main() {
                 if (previousChild) {
                     previousChild.style.backgroundColor = "transparent";
                 }
-                audio.addEventListener('loadedmetadata', function() {
+                audio.addEventListener('loadedmetadata', function () {
                     let slider = document.getElementById("seekbar");
                     slider.max = audio.duration
                     slider.min = 0;
                 });
-                audio.addEventListener("timeupdate",()=>{
+                audio.addEventListener("timeupdate", () => {
                     let slider = document.getElementById("seekbar")
                     slider.value = audio.currentTime;
                 })
-                
-                
+
+
 
             }
             else {
@@ -131,7 +133,7 @@ async function main() {
                 document.getElementById("current_song").innerHTML = remove_mp3;
                 audio.play();
 
-                document.getElementById("librarysongs").children[currentIndex + 1].style.backgroundColor="transparent";
+                document.getElementById("librarysongs").children[currentIndex + 1].style.backgroundColor = "transparent";
                 let currentIndexes = document.getElementById("librarysongs").children[currentIndex];
 
                 if (currentIndexes) {
@@ -151,6 +153,5 @@ async function main() {
 
 }
 main()
-
 
 
