@@ -34,11 +34,14 @@ async function main() {
             slider.value = audio.currentTime;
         })
 
+        // Changes
 
 
-        // Seekbar Default track;
+        
         let new_list_fixing = currentTrack.split("/");
-        let adding_value = new_list_fixing[4].replace(/%20/g, " ");
+        let adding_value = new_list_fixing[5].replace(/%20/g, " ");
+
+        
         let remove_mp3 = adding_value.slice(0, -4)
         document.getElementById("current_song").innerHTML = remove_mp3;
 
@@ -63,6 +66,8 @@ async function main() {
             let new_list = music_list[song].split("/");
 
             let song_list = new_list[5].replace(/%20/g, " ");
+
+            
             let liElement = document.createElement("li");
             liElement.textContent = song_list;
             UL_list.appendChild(liElement);
@@ -91,8 +96,14 @@ async function main() {
                 icon.setAttribute('src', `Images/pause.svg`)
                 audio.src = music_list[currentIndex]
                 let song_name_value = audio.src;
+
+                // Changes
+
                 let new_list_fixing = song_name_value.split("/");
-                let adding_value = new_list_fixing[4].replace(/%20/g, " ");
+                let adding_value = new_list_fixing[5].replace(/%20/g, " ");
+
+
+
                 let remove_mp3 = adding_value.slice(0, -4)
                 document.getElementById("current_song").innerHTML = remove_mp3;
                 audio.play();
@@ -127,8 +138,15 @@ async function main() {
                 console.log(music_list[currentIndex]);
                 audio.src = music_list[currentIndex];
                 let song_name_value = audio.src;
+
+                // Changes
                 let new_list_fixing = song_name_value.split("/");
-                let adding_value = new_list_fixing[4].replace(/%20/g, " ");
+                let adding_value = new_list_fixing[5].replace(/%20/g, " ");
+                
+
+
+               
+
                 let remove_mp3 = adding_value.slice(0, -4)
                 document.getElementById("current_song").innerHTML = remove_mp3;
                 audio.play();
@@ -155,3 +173,6 @@ async function main() {
 main()
 
 
+let new_list_fixing = x.split("/");
+let adding_value = new_list_fixing[5].replace(/%20/g, " ");
+console.log(adding_value);
