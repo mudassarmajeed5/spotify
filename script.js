@@ -1,7 +1,7 @@
 async function main() {
 
     async function getmusic() {
-        let music = await fetch('http://mudassarmajeed5.github.io/spotify/Songs')
+        let music = await fetch('https://mudassarmajeed5.github.io/spotify/Songs')
         let response = await music.text();
         let div = document.createElement("div");
         div.innerHTML = response;
