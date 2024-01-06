@@ -1,0 +1,135 @@
+.banner_buttons {
+    padding: 10px;
+    grid-template-columns: 1.8fr 1fr 0.2fr;
+    display: grid;
+    position: relative;
+    z-index: 1;
+}
+
+.backforward {
+    padding: 5px;
+    width: 35px;
+    background-color: rgba(190, 187, 187, 0.1);
+    border-radius: 50%;
+}
+
+.login_explore {
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    padding: 7px 10px;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+}
+
+.login_explore:nth-child(2) {
+    background-color: black;
+    color: white;
+}
+
+.login {
+    gap: 15px;
+}
+
+.gapbell {
+    gap: 15px;
+}
+
+.color_banner {
+    position: absolute;
+    top: 0;
+    background-color: blue;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    z-index: 0;
+    opacity: 0.2;
+    transition: all 0.5s linear;
+}
+
+#my_library {
+    position: absolute;
+    right: 30px;
+    top: 35px;
+    z-index: 1000;
+    cursor: pointer;
+
+}
+
+.cards {
+    margin-top: 100px;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    position: relative;
+    z-index: 5;
+
+}
+
+.card {
+    width: 220px;
+    height: 270px;
+    border-radius: 10px;
+    background-color: #252525;
+    position: relative;
+    z-index: 10;
+}
+.card_image{
+    
+    margin: 10px auto; 
+    width: 200px;
+}
+#my_library:hover {
+    transform: scale(115%);
+}
+#card_image{
+    width: 100%;
+    border-radius: 10px;
+    object-fit: contain;
+    object-position: center;
+}
+#title{
+    text-align: center;
+    padding: 0px 10px;
+}
+.scroll_songs{
+    overflow: auto;
+    height: 80vh;
+}
+#my_library{
+    display: none;
+}
+@media only screen and (max-width:767px) {
+    .banner_buttons {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px 0px;
+    }
+    #my_library{
+        display: block;
+    }
+    #usersvg {
+        display: none;
+    }
+
+    .cards {
+        justify-content: center;
+        margin-top: 0px;
+    }
+
+    .card {
+        margin-top: 0px;
+        width: 150px;
+        height: 200px;
+    }
+    .card_image{
+        margin: 5px auto;
+        width: 140px;
+    }
+    .scroll_songs{
+        overflow: auto;
+        height: 55vh;
+    }
+}
