@@ -37,7 +37,7 @@ async function main() {
         // Changes
 
 
-        
+
         let new_list_fixing = currentTrack.split("/");
         let adding_value = new_list_fixing[5].replace(/%20/g, " ");
 
@@ -171,8 +171,3 @@ async function main() {
 
 }
 main()
-
-
-let new_list_fixing = x.split("/");
-let adding_value = new_list_fixing[5].replace(/%20/g, " ");
-console.log(adding_value);
