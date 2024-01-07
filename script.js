@@ -1,6 +1,5 @@
 
 async function main() {
-    var check_loop;
     function loop_on_off() {
         let loopi = document.getElementById("loopi");
         let value;
@@ -22,6 +21,7 @@ async function main() {
 
     async function getmusic() {
         let music = await fetch('https://mudassarmajeed5.github.io/spotify/Songs')
+
         let response = await music.text();
         let div = document.createElement("div");
         div.innerHTML = response;
@@ -47,10 +47,7 @@ async function main() {
             audio.volume = volume.value / 100;
         })
     }
-    let currentIndex = 0
-    let isLoopon = loop_on_off()
-    console.log(isLoopon);
-
+    let currentIndex = 0;
     let audio = new Audio();
 
     async function togglebutton() {
@@ -73,14 +70,14 @@ async function main() {
 
         // Changes
 
-
-
         let new_list_fixing = currentTrack.split("/");
+
+
+        //      For github
         let adding_value = new_list_fixing[5].replace(/%20/g, " ");
 
 
         // For local host
-        // let new_list_fixing = currentTrack.split("/")
         // let adding_value = new_list_fixing[4].replace(/%20/g, " ")
 
 
@@ -105,13 +102,13 @@ async function main() {
         let UL_list = document.getElementById("librarysongs");
         for (let song = 0; song < music_list.length; song++) {
 
-            // Changees
             let new_list = music_list[song].split("/");
+
+            // Changees for github
             let song_list = new_list[5].replace(/%20/g, " ");
 
 
             // For local host
-            // let new_list = music_list[song].split("/")
             // let song_list = new_list[4].replace(/%20/g, " ")
 
 
@@ -138,6 +135,34 @@ async function main() {
                 audio.pause();
             }
         })
+        let isLoop = true;
+    
+        if (isLoop) {
+            currentIndex = 0;
+            audio.src = music_list[currentIndex];
+            audio.addEventListener("ended",()=>{
+                currentIndex = currentIndex+1;
+                audio.src = music_list[currentIndex];
+                let new_name = audio.src;
+                let loop_name = new_name.split('/')
+
+                // for github changes
+                let new_loop_name = loop_name[5].replace(/%20/g, " ");
+
+
+
+                // for local host
+                // let new_loop_name = loop_name[4].replace(/%20/g, " ")
+
+
+
+                let remove_mp3 = new_loop_name.slice(0,-4); 
+                document.getElementById("current_song").innerHTML = remove_mp3;
+                audio.play()
+            })
+        }
+
+
         let forwards = document.getElementById("forwards").addEventListener("click", () => {
             if (currentIndex < music_list.length - 1) {
                 currentIndex = currentIndex + 1;
@@ -146,13 +171,13 @@ async function main() {
                 audio.src = music_list[currentIndex]
                 let song_name_value = audio.src;
 
-                // Changes
-
                 let new_list_fixing = song_name_value.split("/");
+
+
+                // Changes for github
                 let adding_value = new_list_fixing[5].replace(/%20/g, " ");
 
                 // For local host
-                // let new_list_fixing = song_name_value.split("/")
                 // let adding_value = new_list_fixing[4].replace(/%20/g, " ")
 
 
@@ -197,14 +222,13 @@ async function main() {
                 console.log(music_list[currentIndex]);
                 audio.src = music_list[currentIndex];
                 let song_name_value = audio.src;
+                let new_list_fixing = song_name_value.split("/");
 
                 // for hosting online
-                let new_list_fixing = song_name_value.split("/");
                 let adding_value = new_list_fixing[5].replace(/%20/g, " ");
 
 
                 // // For local host
-                // let new_list_fixing = song_name_value.split("/")
                 // let adding_value = new_list_fixing[4].replace(/%20/g, " ")
 
 
