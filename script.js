@@ -1,23 +1,8 @@
 
 async function main() {
-    function loop_on_off() {
-        let loopi = document.getElementById("loopi");
-        let value;
-        if (loopi.getAttribute('src').includes('no')) {
-            loopi.setAttribute('src', 'right-images/loop.svg')
-            console.log('Loop on');
+    
+        
 
-            value = true;
-
-        }
-        else {
-            loopi.setAttribute('src', 'right-images/noloop.svg')
-            console.log('Loop off');
-            value = false
-        }
-        return value;
-
-    }
 
     async function getmusic() {
         let music = await fetch('https://mudassarmajeed5.github.io/spotify/Songs')
@@ -135,32 +120,59 @@ async function main() {
                 audio.pause();
             }
         })
+
+        // Adding functionality of looping through songs.
         let isLoop = true;
-    
-        if (isLoop) {
-            currentIndex = 0;
-            audio.src = music_list[currentIndex];
-            audio.addEventListener("ended",()=>{
-                currentIndex = currentIndex+1;
-                audio.src = music_list[currentIndex];
-                let new_name = audio.src;
-                let loop_name = new_name.split('/')
 
-                // for github changes
-                let new_loop_name = loop_name[5].replace(/%20/g, " ");
-
-
-
-                // for local host
-                // let new_loop_name = loop_name[4].replace(/%20/g, " ")
-
-
-
-                let remove_mp3 = new_loop_name.slice(0,-4); 
-                document.getElementById("current_song").innerHTML = remove_mp3;
-                audio.play()
-            })
-        }
+        let loopi = document.getElementById("loopi");
+        loopi.addEventListener("click", () => {
+            if (loopi.getAttribute('src').includes('no')) {
+                loopi.setAttribute('src', 'right-images/loop.svg')
+                console.log('Loop on');
+                isLoop = true;
+        
+                if (isLoop) {
+                    currentIndex = 0;
+                    audio.src = music_list[currentIndex];
+                    audio.addEventListener("ended", () => {
+                        if (isLoop) {
+                            currentIndex = (currentIndex + 1) % music_list.length; // Improved logic for looping
+                            audio.src = music_list[currentIndex];
+                            let new_name = audio.src;
+                            let loop_name = new_name.split('/');
+        
+                            // for github changes
+                            let new_loop_name = loop_name[5].replace(/%20/g, " ");
+        
+                            // for local host
+                            // let new_loop_name = loop_name[4].replace(/%20/g, " ")
+        
+                            let remove_mp3 = new_loop_name.slice(0, -4);
+                            document.getElementById("current_song").innerHTML = remove_mp3;
+        
+                            // Just some extra code to also change the border colors while looping through the list.
+                            document.getElementById("librarysongs").children[currentIndex].style.backgroundColor = "rgba(255,255,255,0.1)";
+        
+                            // This will remove the border from the previous child;
+                            let previousChild = document.getElementById("librarysongs").children[(currentIndex - 1 + music_list.length) % music_list.length];
+                            if (previousChild) {
+                                previousChild.style.backgroundColor = "transparent";
+                            }
+                            // End of some extra code to also change the border colors while looping through the list.
+        
+                            audio.play();
+                        }
+                    })
+                }
+        
+            } else {
+                loopi.setAttribute('src', 'right-images/noloop.svg')
+                console.log('Loop off');
+                isLoop = false;
+            }
+        })
+        
+        
 
 
         let forwards = document.getElementById("forwards").addEventListener("click", () => {
