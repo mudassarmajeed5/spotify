@@ -97,13 +97,28 @@ async function main() {
             // let song_list = new_list[4].replace(/%20/g, " ")
 
 
-
-
             let liElement = document.createElement("li");
             liElement.textContent = song_list;
             UL_list.appendChild(liElement);
+
+            liElement.addEventListener("click",()=>{
+                document.getElementById("current_song").innerHTML = liElement.textContent;
+                
+
+                let lis = document.getElementsByTagName("li");
+                Array.from(lis).forEach(li => {
+                    li.style.backgroundColor = "transparent";
+                });
+                document.getElementById("librarysongs").children[song].style.backgroundColor = "rgba(255,255,255,0.1)";
+                let ico = document.getElementById("play-pause");
+                ico.getAttribute('src')
+                ico.setAttribute('src','Images/pause.svg')
+                audio.src = music_list[song];
+                audio.play()
+            })
         }
 
+        
 
         console.log(music_list);
         let icon = document.getElementById("play-pause");

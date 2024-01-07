@@ -69,6 +69,10 @@ body {
     padding: 10px 0px;
 }
 
+#loopi {
+    position: static;
+}
+
 .buttons * {
     cursor: pointer;
 }
@@ -80,13 +84,15 @@ body {
 hown */
 /* Full player css  */
 .player {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(128, 128, 128, 0.1);
     padding: 0px 20px;
     display: grid;
     grid-template-columns: 0.2fr 0.6fr 0.2fr;
     grid-template-areas: "0.2fr 0.6fr 0.2fr"
         "1fr 1fr 1fr";
     width: 80vw;
-    background-color: rgba(255, 255, 255, 0.1);
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -102,7 +108,7 @@ hown */
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .mute_unmute {
@@ -181,10 +187,19 @@ Icons library */
     width: 60vw;
     color: red;
 }
-.music_icon{
+
+.music_icon {
     display: none;
 }
+
 @media only screen and (max-width:767px) {
+    body{
+        background-color: #4a4a4a;
+    }
+    
+    .login_explore:nth-child(2){
+        display: none;
+    }
     .left {
         width: 100vw;
         display: none;
@@ -209,17 +224,26 @@ Icons library */
         display: flex;
         flex-direction: column;
     }
-    .music_icon{
+
+    .music_icon {
         display: block;
     }
-    .your-library{
+
+    .your-library {
         width: 90vw;
     }
-    .library{
+
+    .library {
         height: 80vh;
     }
-    .player{
-        background-color: rgba(0, 0, 0, 0.8);
+
+    .player {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    #loopi {
+        position: absolute;
+        right: 20px;
     }
 
 }
@@ -244,13 +268,14 @@ Icons library */
 
 
 /* input slider and range volume + seekbar custom styles */
-#volume_controller{
+#volume_controller {
     -webkit-appearance: none;
     outline: none;
     height: 2px;
     background-color: rgb(79, 102, 233);
 }
-#volume_controller::-webkit-slider-thumb{
+
+#volume_controller::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 10px;
     height: 10px;
@@ -259,15 +284,16 @@ Icons library */
     cursor: pointer;
     box-shadow: 0px 0px 5px white;
 }
-#seekbar{
+
+#seekbar {
     -webkit-appearance: none;
     outline: none;
     margin: 0px 0px 15px 0px;
     height: 3px;
-    
+
 }
 
-#seekbar::-webkit-slider-thumb{
+#seekbar::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 15px;
     height: 15px;
