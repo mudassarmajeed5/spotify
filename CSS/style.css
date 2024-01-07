@@ -84,9 +84,12 @@ body {
 hown */
 /* Full player css  */
 .player {
+
+    -webkit-backdrop-filter: blur(3.6px);
+    background: rgba(49, 46, 46, 0.3);
+    border-radius: 16px;
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    background-color: rgba(128, 128, 128, 0.1);
+
     padding: 0px 20px;
     display: grid;
     grid-template-columns: 0.2fr 0.6fr 0.2fr;
@@ -193,13 +196,20 @@ Icons library */
 }
 
 @media only screen and (max-width:767px) {
-    body{
+    body {
         background-color: #4a4a4a;
+        margin: 0px;
     }
-    
-    .login_explore:nth-child(2){
+
+    .right {
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .login_explore:nth-child(2) {
         display: none;
     }
+
     .left {
         width: 100vw;
         display: none;
@@ -238,7 +248,9 @@ Icons library */
     }
 
     .player {
+
         background-color: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
     }
 
     #loopi {
