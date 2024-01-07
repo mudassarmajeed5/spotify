@@ -23,3 +23,16 @@ document.getElementById("my_library").addEventListener("click", () => {
         
     }
 });
+let loopi = document.getElementById("loopi");
+loopi.addEventListener('click',()=>{
+    if (loopi.getAttribute('src').includes('no')){
+        loopi.setAttribute('src','right-images/loop.svg')
+        console.log('Loop on');
+        
+    }
+    else{
+        loopi.setAttribute('src','right-images/noloop.svg')
+        console.log('Loop off');
+    }
+})
+

@@ -1,3 +1,4 @@
+
 async function main() {
 
     async function getmusic() {
@@ -15,7 +16,18 @@ async function main() {
         }
         return songs;
     }
-
+    function control_seekbar_value(){
+        let control_seekbar = document.getElementById("seekbar");
+        control_seekbar.addEventListener("input",()=>{
+            audio.currentTime = control_seekbar.value;
+        })
+    }
+    function control_volume(){
+        let volume = document.getElementById("volume_controller")
+        volume.addEventListener('input',()=>{
+            audio.volume = volume.value/100;
+        })
+    }
     currentIndex = 0
     let audio = new Audio();
 
@@ -33,15 +45,22 @@ async function main() {
             let slider = document.getElementById("seekbar")
             slider.value = audio.currentTime;
         })
+        control_seekbar_value()
+        control_volume()
 
         // Changes
 
 
 
-        let new_list_fixing = currentTrack.split("/");
-        let adding_value = new_list_fixing[5].replace(/%20/g, " ");
+        // let new_list_fixing = currentTrack.split("/");
+        // let adding_value = new_list_fixing[5].replace(/%20/g, " ");
 
-        
+
+        // For local host
+        let new_list_fixing = currentTrack.split("/")
+        let adding_value = new_list_fixing[4].replace(/%20/g, " ")
+
+
         let remove_mp3 = adding_value.slice(0, -4)
         document.getElementById("current_song").innerHTML = remove_mp3;
 
@@ -63,11 +82,18 @@ async function main() {
         let UL_list = document.getElementById("librarysongs");
         for (let song = 0; song < music_list.length; song++) {
 
-            let new_list = music_list[song].split("/");
-
-            let song_list = new_list[5].replace(/%20/g, " ");
+            // Changees
+            // let new_list = music_list[song].split("/");
+            // let song_list = new_list[5].replace(/%20/g, " ");
 
             
+                // For local host
+            let new_list = music_list[song].split("/")
+            let song_list = new_list[4].replace(/%20/g," ")
+
+
+
+
             let liElement = document.createElement("li");
             liElement.textContent = song_list;
             UL_list.appendChild(liElement);
@@ -99,14 +125,24 @@ async function main() {
 
                 // Changes
 
-                let new_list_fixing = song_name_value.split("/");
-                let adding_value = new_list_fixing[5].replace(/%20/g, " ");
+                // let new_list_fixing = song_name_value.split("/");
+                // let adding_value = new_list_fixing[5].replace(/%20/g, " ");
+
+                // For local host
+                let new_list_fixing = song_name_value.split("/")
+                let adding_value = new_list_fixing[4].replace(/%20/g, " ")
 
 
 
                 let remove_mp3 = adding_value.slice(0, -4)
                 document.getElementById("current_song").innerHTML = remove_mp3;
                 audio.play();
+
+                // VOlume + seekbar controls
+                control_seekbar_value()
+                control_volume()
+                // Done
+
                 // Background to current song in the list when playing.
                 document.getElementById("librarysongs").children[currentIndex].style.backgroundColor = "rgba(255,255,255,0.1)";
                 //This will remove the boder from the previous child;
@@ -139,17 +175,25 @@ async function main() {
                 audio.src = music_list[currentIndex];
                 let song_name_value = audio.src;
 
-                // Changes
-                let new_list_fixing = song_name_value.split("/");
-                let adding_value = new_list_fixing[5].replace(/%20/g, " ");
-                
+                // for hosting online
+                // let new_list_fixing = song_name_value.split("/");
+                // let adding_value = new_list_fixing[5].replace(/%20/g, " ");
 
 
-               
+                // For local host
+                let new_list_fixing = song_name_value.split("/")
+                let adding_value = new_list_fixing[4].replace(/%20/g, " ")
+
+
 
                 let remove_mp3 = adding_value.slice(0, -4)
                 document.getElementById("current_song").innerHTML = remove_mp3;
                 audio.play();
+
+                // VOlume + seekbar controls
+                control_seekbar_value()
+                control_volume()
+                // Done
 
                 document.getElementById("librarysongs").children[currentIndex + 1].style.backgroundColor = "transparent";
                 let currentIndexes = document.getElementById("librarysongs").children[currentIndex];
