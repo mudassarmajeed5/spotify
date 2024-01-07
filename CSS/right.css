@@ -75,6 +75,11 @@
     background-color: #252525;
     position: relative;
     z-index: 10;
+    transition: all 0.3s ease;
+}
+.card:hover{
+    cursor: pointer;
+    background-color: #383838;
 }
 .card_image{
     
@@ -104,6 +109,21 @@
 #volume_controller:hover{
     cursor: pointer;
 }
+.sania{
+    width: 45px;
+    background-color: green;
+    border-radius: 50%;
+    padding: 10px;
+    position: absolute;
+    bottom: 63px;
+    right: 13px;
+    opacity: 0;
+}
+
+.sania:hover{
+    opacity: 1 !important;
+}
+
 @media only screen and (max-width:767px) {
     .banner_buttons {
         display: flex;

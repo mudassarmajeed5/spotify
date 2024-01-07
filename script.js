@@ -1,5 +1,24 @@
 
 async function main() {
+    var check_loop;
+    function loop_on_off() {
+        let loopi = document.getElementById("loopi");
+        let value;
+        if (loopi.getAttribute('src').includes('no')) {
+            loopi.setAttribute('src', 'right-images/loop.svg')
+            console.log('Loop on');
+
+            value = true;
+
+        }
+        else {
+            loopi.setAttribute('src', 'right-images/noloop.svg')
+            console.log('Loop off');
+            value = false
+        }
+        return value;
+
+    }
 
     async function getmusic() {
         let music = await fetch('https://mudassarmajeed5.github.io/spotify/Songs')
@@ -16,22 +35,26 @@ async function main() {
         }
         return songs;
     }
-    function control_seekbar_value(){
+    function control_seekbar_value() {
         let control_seekbar = document.getElementById("seekbar");
-        control_seekbar.addEventListener("input",()=>{
+        control_seekbar.addEventListener("input", () => {
             audio.currentTime = control_seekbar.value;
         })
     }
-    function control_volume(){
+    function control_volume() {
         let volume = document.getElementById("volume_controller")
-        volume.addEventListener('input',()=>{
-            audio.volume = volume.value/100;
+        volume.addEventListener('input', () => {
+            audio.volume = volume.value / 100;
         })
     }
-    currentIndex = 0
+    let currentIndex = 0
+    let isLoopon = loop_on_off()
+    console.log(isLoopon);
+
     let audio = new Audio();
 
     async function togglebutton() {
+
         let music_list = await getmusic();
         var currentTrack = music_list[0];
 
@@ -52,13 +75,13 @@ async function main() {
 
 
 
-        // let new_list_fixing = currentTrack.split("/");
-        // let adding_value = new_list_fixing[5].replace(/%20/g, " ");
+        let new_list_fixing = currentTrack.split("/");
+        let adding_value = new_list_fixing[5].replace(/%20/g, " ");
 
 
         // For local host
-        let new_list_fixing = currentTrack.split("/")
-        let adding_value = new_list_fixing[4].replace(/%20/g, " ")
+        // let new_list_fixing = currentTrack.split("/")
+        // let adding_value = new_list_fixing[4].replace(/%20/g, " ")
 
 
         let remove_mp3 = adding_value.slice(0, -4)
@@ -83,13 +106,13 @@ async function main() {
         for (let song = 0; song < music_list.length; song++) {
 
             // Changees
-            // let new_list = music_list[song].split("/");
-            // let song_list = new_list[5].replace(/%20/g, " ");
+            let new_list = music_list[song].split("/");
+            let song_list = new_list[5].replace(/%20/g, " ");
 
-            
-                // For local host
-            let new_list = music_list[song].split("/")
-            let song_list = new_list[4].replace(/%20/g," ")
+
+            // For local host
+            // let new_list = music_list[song].split("/")
+            // let song_list = new_list[4].replace(/%20/g, " ")
 
 
 
@@ -125,12 +148,12 @@ async function main() {
 
                 // Changes
 
-                // let new_list_fixing = song_name_value.split("/");
-                // let adding_value = new_list_fixing[5].replace(/%20/g, " ");
+                let new_list_fixing = song_name_value.split("/");
+                let adding_value = new_list_fixing[5].replace(/%20/g, " ");
 
                 // For local host
-                let new_list_fixing = song_name_value.split("/")
-                let adding_value = new_list_fixing[4].replace(/%20/g, " ")
+                // let new_list_fixing = song_name_value.split("/")
+                // let adding_value = new_list_fixing[4].replace(/%20/g, " ")
 
 
 
@@ -176,13 +199,13 @@ async function main() {
                 let song_name_value = audio.src;
 
                 // for hosting online
-                // let new_list_fixing = song_name_value.split("/");
-                // let adding_value = new_list_fixing[5].replace(/%20/g, " ");
+                let new_list_fixing = song_name_value.split("/");
+                let adding_value = new_list_fixing[5].replace(/%20/g, " ");
 
 
-                // For local host
-                let new_list_fixing = song_name_value.split("/")
-                let adding_value = new_list_fixing[4].replace(/%20/g, " ")
+                // // For local host
+                // let new_list_fixing = song_name_value.split("/")
+                // let adding_value = new_list_fixing[4].replace(/%20/g, " ")
 
 
 

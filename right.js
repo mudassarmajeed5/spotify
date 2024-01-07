@@ -1,38 +1,42 @@
-function randomColor(){
-    let generate_color = Math.floor(Math.random()*16777215);
+function randomColor() {
+    let generate_color = Math.floor(Math.random() * 16777215);
     // console.log(generate_color);
-    let hex_color = "#"+generate_color;
+    let hex_color = "#" + generate_color;
     return hex_color
-    
-}
-let x = document.getElementById("changescolor")
-setInterval(() => {
-    x.style.backgroundColor=`${randomColor()}`;
-}, 1000);
-document.getElementById("my_library").addEventListener("click", () => {
-    let x = document.querySelector(".left");
-    let y = document.querySelector(".right");
 
-    if (y.style.display === "none") {
-        y.style.display = "block";
-        x.style.display = "none";
-        
-    } else {
-        x.style.display = "block";
-        y.style.display = "none";
-        
-    }
-});
-let loopi = document.getElementById("loopi");
-loopi.addEventListener('click',()=>{
-    if (loopi.getAttribute('src').includes('no')){
-        loopi.setAttribute('src','right-images/loop.svg')
-        console.log('Loop on');
-        
-    }
-    else{
-        loopi.setAttribute('src','right-images/noloop.svg')
-        console.log('Loop off');
-    }
-})
+}
+
+function changeColor() {
+    let x = document.getElementById("changescolor")
+    setInterval(() => {
+        x.style.backgroundColor = `${randomColor()}`;
+    }, 1000);
+}
+changeColor()
+
+
+function open_close() {
+    let changeClick = document.getElementById("my_library");
+    changeClick.addEventListener("click", () => {
+        let x = document.querySelector(".left");
+        let y = document.querySelector(".right");
+
+        if (y.style.display === "none") {
+            y.style.display = "block";
+            x.style.display = "none";
+            if (changeClick.getAttribute('src').includes('close')) {
+                changeClick.setAttribute('src', 'right-images/bell.svg')
+            }
+        } else {
+            x.style.display = "block";
+            y.style.display = "none";
+            if (changeClick.getAttribute('src').includes('bell')) {
+                changeClick.setAttribute('src', 'right-images/close.svg')
+            }
+        }
+    });
+}
+open_close()
+
+
 
