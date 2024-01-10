@@ -78,6 +78,8 @@
     transition: all 0.3s ease;
 }
 .card:hover{
+    
+    box-shadow: 0px 0px 10px whitesmoke;
     cursor: pointer;
     background-color: #383838;
 }
