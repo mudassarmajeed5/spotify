@@ -77,86 +77,98 @@
     z-index: 10;
     transition: all 0.3s ease;
 }
-.card:hover{
-    
+
+.card:hover {
+
     box-shadow: 0px 0px 10px whitesmoke;
     cursor: pointer;
     background-color: #383838;
 }
-.card:hover::before{
+
+.card:hover::before {
     position: absolute;
-    content: url("/Images/play.svg");
+    content: url('data:image/svg+xml;utf8,<svg width=\'30\' height=\'30\' viewBox=\'0 0 24 24\' fill=\'green\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M19.6432 12.848C20.2699 12.4564 20.2699 11.5437 19.6432 11.152L6.53 2.95627C5.86395 2.53999 5 3.01884 5 3.80427V20.1958C5 20.9812 5.86395 21.4601 6.53 21.0438L19.6432 12.848Z\' fill=\'black\'/></svg>');
+    border-radius: 50%;
+    background-color: limegreen;    
     z-index: 100;
     width: 30px;
     height: 30px;
     stroke: white;
-    background-color: rgb(17, 207, 17);
-    border-radius: 50%;
     bottom: 68px;
     right: 10px;
     padding: 8px;
-}
-
-.card_image{
-    
-    margin: 10px auto; 
-    width: 180px;
-}
-#my_library:hover {
-    transform: scale(115%);
-}
-#card_image{
-    width: 100%;
-    border-radius: 10px;
-    object-fit: contain;
-    object-position: center;
-}
-#title{
-    text-align: center;
-    padding: 0px 10px;
-}
-.scroll_songs{
-    overflow: auto;
-    height: 80vh;
-}
-#my_library{
-    display: none;
-}
-#volume_controller:hover{
-    cursor: pointer;
-}
-
-
-
-@media only screen and (max-width:767px) {
-    .banner_buttons {
-        display: flex;
-        justify-content: space-around;
-        padding: 20px 0px;
     }
-    #my_library{
-        display: block;
+
+    .card_image {
+
+        margin: 10px auto;
+        width: 180px;
     }
-    #usersvg {
+
+    #my_library:hover {
+        transform: scale(115%);
+    }
+
+    #card_image {
+        width: 100%;
+        border-radius: 10px;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    #title {
+        text-align: center;
+        padding: 0px 10px;
+    }
+
+    .scroll_songs {
+        overflow: auto;
+        height: 80vh;
+    }
+
+    #my_library {
         display: none;
     }
 
-    .cards {
-        justify-content: center;
-        margin-top: 0px;
+    #volume_controller:hover {
+        cursor: pointer;
     }
 
-    .card {
-        margin-top: 0px;
-        width: 150px;
-        height: 200px;
+
+
+    @media only screen and (max-width:767px) {
+        .banner_buttons {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 0px;
+        }
+
+        #my_library {
+            display: block;
+        }
+
+        #usersvg {
+            display: none;
+        }
+
+        .cards {
+            justify-content: center;
+            margin-top: 0px;
+        }
+
+        .card {
+            margin-top: 0px;
+            width: 150px;
+            height: 200px;
+        }
+
+        .card_image {
+            margin: 5px auto;
+            width: 140px;
+        }
+
+        .scroll_songs {
+            overflow: auto;
+            height: 55vh;
+        }
     }
-    .card_image{
-        margin: 5px auto;
-        width: 140px;
-    }
-    .scroll_songs{
-        overflow: auto;
-        height: 55vh;
-    }
-}
