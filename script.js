@@ -102,7 +102,9 @@ async function main() {
             UL_list.appendChild(liElement);
 
             liElement.addEventListener("click",()=>{
-                document.getElementById("current_song").innerHTML = liElement.textContent;
+                let remove_mp3 = liElement.textContent;
+                mp3remove = remove_mp3.slice(0,-4);
+                document.getElementById("current_song").innerHTML = mp3remove;
                 
 
                 let lis = document.getElementsByTagName("li");
