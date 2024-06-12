@@ -90,7 +90,9 @@ async function main() {
             let new_list = music_list[song].split("/");
 
             // Changees for github
-            let song_list = new_list[5].replace(/%20/g, " ");
+            let songList = new_list[5].replace(/%20/g, " ");
+
+            let song_list = songList.slice(0-4);
 
 
             // For local host
