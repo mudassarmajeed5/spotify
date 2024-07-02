@@ -18,7 +18,7 @@ function changeColor() {
     let x = document.getElementById("changescolor");
     setInterval(() => {
         x.style.backgroundColor = randomColor(); // Use randomColor() directly
-    }, 1000);
+    }, 2000);
 }
 
 // Call changeColor() to start changing the background color
