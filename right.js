@@ -1,18 +1,29 @@
 function randomColor() {
-    let generate_color = Math.floor(Math.random() * 16777215);
-    // console.log(generate_color);
-    let hex_color = "#" + generate_color;
-    return hex_color
+    // Function to generate a random hexadecimal digit
+    function getRandomHexDigit() {
+        const hexDigits = '0123456789ABCDEF';
+        return hexDigits[Math.floor(Math.random() * 16)];
+    }
 
+    // Generate a random hex color
+    let hexColor = '#';
+    for (let i = 0; i < 6; i++) {
+        hexColor += getRandomHexDigit();
+    }
+
+    return hexColor;
 }
 
 function changeColor() {
-    let x = document.getElementById("changescolor")
+    let x = document.getElementById("changescolor");
     setInterval(() => {
-        x.style.backgroundColor = `${randomColor()}`;
+        x.style.backgroundColor = randomColor(); // Use randomColor() directly
     }, 1000);
 }
-changeColor()
+
+// Call changeColor() to start changing the background color
+changeColor();
+
 
 
 function open_close() {
